@@ -1,4 +1,3 @@
- 
 import { Providers } from "@/redux/provider";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -8,10 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const defaultMetadata = {
   title:
-    "Best Algo Trading Software in India | Algorithmic Trading Solutions - Elite Algo Trading",
+    "Find Local Businesses Near Me | Business Directory - SpaCentresNearMe",
   description:
-    "Explore AI & algorithmic trading with Elite Algo Trading. Use algo trading algorithms for the forex currency market to boost your trading strategy and market performance.",
-  canonical: "https://algotradingelite.com/",
+    "Discover and explore top local businesses near you with SpaCentresNearMe. Browse listings, read reviews, and connect with services across categories like spas, restaurants, salons, and more.",
+  canonical: "https://spacentresnearme.com/",
 };
 
 export default function RootLayout({ children, metadata = defaultMetadata }) {
@@ -33,7 +32,10 @@ export default function RootLayout({ children, metadata = defaultMetadata }) {
         />
 
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CDQ7GTGL8"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-6CDQ7GTGL8"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -73,12 +75,9 @@ export default function RootLayout({ children, metadata = defaultMetadata }) {
         </noscript>
       </head>
       <body className={inter.className + " nk-body"} data-menu-collapse="lg">
-      <Providers>
-<Layout>
-
-        {children}
-</Layout>
-      </Providers>
+        <Providers>
+          <Layout>{children}</Layout>
+        </Providers>
       </body>
       <script src="/assets/js/bundle6572.js"></script>
       <script src="/assets/js/scripts6572.js"></script>
