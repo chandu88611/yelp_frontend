@@ -9,7 +9,12 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaYoutube,
+  FaWhatsapp,
+  FaTelegramPlane,
+  FaPinterestP,
 } from "react-icons/fa";
+
 import {
   SiVisa,
   SiMastercard,
@@ -168,9 +173,9 @@ export default function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div className="border-t border-gray-700 pt-6">
+      <div className="border-t border-gray-700 pt-6 bg-black">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
+          <div className="flex flex-wrap justify-center gap-6 text-grey-400 !important text-sm">
             {[
               "How it works",
               "About Us",
@@ -185,33 +190,43 @@ export default function Footer() {
               <a
                 key={link}
                 href="#"
-                className="text-gray-400 hover:text-white transition relative"
+                className="text-gray-400 !important hover:text-blue-500 !important"
               >
-                <span className="underline underline-offset-4 decoration-gray-500">
+                <span className="underline underline-offset-4 decoration-white">
                   {link}
                 </span>
               </a>
             ))}
           </div>
 
-          {/* Copyright */}
-          <div className="text-center text-gray-500 mt-5">
+          <div className="text-center text-grey mt-5">
             © {new Date().getFullYear()} Yelp Clone. All Rights Reserved.
           </div>
 
-          {/* Social Links */}
           <div className="flex justify-center space-x-4 mt-4">
-            <a href="#" className="text-gray-400 hover:text-white">
-              <FaFacebookF />
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaFacebookF size={20} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              <FaTwitter />
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaTwitter size={20} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              <FaInstagram />
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaInstagram size={20} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              <FaLinkedinIn />
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaLinkedinIn size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaYoutube size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaWhatsapp size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaTelegramPlane size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaPinterestP size={20} />
             </a>
           </div>
         </div>

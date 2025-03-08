@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Menu, Dropdown, Drawer, Button } from "antd";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiSearch } from "react-icons/fi";
 import {
   AiOutlineDown,
   AiOutlineLogin,
@@ -42,162 +42,106 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
+    <nav className="absolute top-0 left-0 w-full z-50 bg-transparent">
+      <div className="w-full px-6 py-4 flex items-center justify-between">
+        {/* Logo fully aligned to the left */}
         <div className="text-2xl font-bold text-blue-600">YelpClone</div>
-
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-6">
-          {menuItems.map((item, index) =>
-            item.submenu ? (
-              <Dropdown
-                key={index}
-                overlay={
-                  <Menu>
-                    {item.submenu.map((sub, i) => (
-                      <Menu.Item key={i}>
-                        {/* Use Next.js Link for correct navigation */}
-                        <Link href={sub.link}>{sub.name}</Link>
-                      </Menu.Item>
-                    ))}
-                  </Menu>
-                }
-                trigger={["hover"]}
-              >
-                <a className="flex items-center space-x-1 text-gray-700 hover:text-blue-500 cursor-pointer">
-                  <span>{item.name}</span>
-                  <AiOutlineDown className="text-sm" />
-                </a>
-              </Dropdown>
-            ) : (
-              <Link
-                key={index}
-                href={item.link}
-                className="text-gray-700 hover:text-blue-500 transition"
-              >
-                {item.name}
-              </Link>
-            )
-          )}
-          <div className="flex items-center ml-10">
-            {/* Login Button */}
-            <Button
-              type="primary"
-              size="middle"
-              className="flex items-center gap-2"
-            >
-              <AiOutlineLogin />
-              <a href="/login">Login</a>
-            </Button>
-            {/* Proper gap between Login and Register */}
-            <div className="w-2"></div>
-            {/* Register Button */}
-            <Button
-              type="default"
-              size="middle"
-              className="flex items-center gap-2"
-            >
-              <AiOutlineUserAdd />
-              <a href="/register">Register</a>
-            </Button>
-
-            {/* Big gap before Add Listing */}
-            <div className="ml-8">
-              <Button
-                type="default"
-                size="middle"
-                className="flex items-center gap-2 font-semibold text-blue-600"
-              >
-                <AiOutlinePlus />
-                <a href="/addListing">Listing</a>
-              </Button>
-            </div>
+        {/* Search Field */}
+        <div className="w-full max-w-3xl mr-40">
+          <div className="flex items-center bg-white rounded-md overflow-hidden shadow-md border border-gray-300">
+            <input
+              type="text"
+              placeholder="Keywords"
+              className="w-1/2 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="text"
+              placeholder="Location"
+              className="w-1/4 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <select className="w-1/3 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option>Select Category</option>
+              <option>Hotels</option>
+              <option>Restaurant</option>
+              <option>Events</option>
+              <option>Cinema</option>
+              <option>Gym</option>
+              <option>Shop & Store</option>
+              <option>Tours & Travels</option>
+              <option>Cafe</option>
+              <option>Mobile Store</option>
+              <option>College</option>
+            </select>
+            <button className="w-1/16 bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 font-semibold transition">
+              <FiSearch className="w-5 h-5" />
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-gray-700"
-          onClick={() => setOpen(true)}
-        >
-          <FiMenu className="text-2xl" />
-        </button>
+        {/* Login/Register and Add Listing */}
+        <div className="flex items-center space-x-6">
+          <Button
+            type="default"
+            className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-[#f2f3f4]"
+          >
+            <AiOutlineLogin /> Login
+          </Button>
+          <Button
+            type="default"
+            className="border border-gray-400 text-white bg-transparent px-2 py-2 rounded-md hover:bg-[#f2f3f4] transition"
+          >
+            <AiOutlineUserAdd /> SignUp
+          </Button>
+          <div className="ml-10">
+            <Button
+              type="default"
+              className="border border-gray-400 text-white bg-transparent px-2 py-2 rounded-md hover:bg-[#f2f3f4] transition"
+            >
+              <AiOutlinePlus /> Listing
+            </Button>
+          </div>
+        </div>
       </div>
-
-      {/* Mobile Drawer */}
-      <Drawer
-        title="Menu"
-        placement="right"
-        closable={true}
-        onClose={() => setOpen(false)}
-        open={open}
-      >
-        <ul className="space-y-4">
+      {/* Navigation Below Search */}
+      <div className="w-full bg-transparent text-center py-2 flex justify-start ml-70">
+        <ul className="flex justify-center space-x-6 text-white">
           {menuItems.map((item, index) => (
-            <li key={index}>
+            <li key={index} className="relative transition">
               {item.submenu ? (
-                <details className="group">
-                  <summary className="flex justify-between items-center cursor-pointer">
+                <Dropdown
+                  overlay={
+                    <Menu className="bg-white shadow-lg rounded-md">
+                      {item.submenu.map((sub, i) => (
+                        <Menu.Item key={i} className="hover:bg-gray-200">
+                          <Link
+                            href={sub.link}
+                            className="text-gray-800 hover:text-blue-500 block px-4 py-2"
+                          >
+                            {sub.name}
+                          </Link>
+                        </Menu.Item>
+                      ))}
+                    </Menu>
+                  }
+                  trigger={["hover"]}
+                >
+                  <a className="cursor-pointer flex items-center space-x-1 text-white hover:text-blue-500 transition">
                     <span>{item.name}</span>
-                    <AiOutlineDown className="transition group-open:rotate-180" />
-                  </summary>
-                  <motion.ul
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    className="pl-4 mt-2 space-y-2 border-l border-gray-300"
-                  >
-                    {item.submenu.map((sub, i) => (
-                      <li key={i}>
-                        <a href="#" className="text-gray-600 block">
-                          {sub}
-                        </a>
-                      </li>
-                    ))}
-                  </motion.ul>
-                </details>
+                    <AiOutlineDown className="text-sm" />
+                  </a>
+                </Dropdown>
               ) : (
-                <a href={item.link} className="block">
+                <Link
+                  href={item.link}
+                  className="text-white hover:text-blue-500 transition"
+                >
                   {item.name}
-                </a>
+                </Link>
               )}
             </li>
           ))}
-
-          {/* Auth Buttons (Login first, Register second) */}
-          <li>
-            <Button
-              type="primary"
-              block
-              className="flex items-center justify-center gap-2"
-            >
-              <AiOutlineLogin />
-              <a href="/login">Login</a>
-            </Button>
-          </li>
-
-          <li>
-            <Button
-              block
-              className="flex items-center justify-center gap-2 mt-2"
-            >
-              <AiOutlineUserAdd />
-              <a href="/register">Register</a>
-            </Button>
-          </li>
-
-          {/* Add Listing Button with space below */}
-          <li className="mt-4">
-            <Button
-              block
-              className="flex items-center justify-center gap-2 font-semibold text-blue-600"
-            >
-              <AiOutlinePlus />
-              <a href="/add-listing">Add Listing</a>
-            </Button>
-          </li>
         </ul>
-      </Drawer>
+      </div>
     </nav>
   );
 };

@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import Newsletter from "./Newsletter";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 
 function Layout({ children }) {
@@ -22,11 +23,11 @@ function Layout({ children }) {
 
   return (
     <div>
-      <Header/>
+      <Header />
       {children}
+      <Newsletter />
       <Footer />
 
- 
       {notTop && (
         <div className="fixed bottom-6 right-6 flex flex-col gap-3">
           <a
