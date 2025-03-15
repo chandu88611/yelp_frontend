@@ -5,1412 +5,178 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {FaFacebookF,FaTwitter, FaRss, FaYoutube, FaLinkedinIn, FaGooglePlusG, FaRegHeart, FaStar, FaExclamationCircle,FaPhoneAlt, FaHeart, FaEye, FaClock, FaMapMarkerAlt, FaBriefcase,  } from "react-icons/fa";
+import { IoLocationOutline } from "react-icons/io5";
+import StarRating from "@/components/StarRatings";
+import ProductSlider from "@/components/ProductSlider";
 
 export default function Business() {
   return (
     <>
       <div className="pattern-img">
-        <div className="relative sptb-12 pattern2 bg-background">
+      <div className="relative sptb-12 pattern2 bg-[#024588] bg-[url('/images/pattern.jpg')] bg-cover bg-blend-overlay">
+      <div className="absolute inset-0 bg-[#04417f] opacity-80"></div>
           <div className="header-text1 mb-0">
             <div className="container">
               <div className="row">
                 <div className="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
-                  <div className="text-center text-white ">
-                    <h1 className="mb-2">
-                      <span className="font-weight-semibold">
-                        Bizdire University
-                      </span>
-                    </h1>
-                    <div className="mx-auto mb-2 mt-3 d-flex banner-ratings">
-                      <div
-                        className="rating-star sm my-rating-5"
-                        data-rating="4.5"
+                <div className="text-center text-white">
+                 <h1 className="mb-2 text-white font-semibold">
+                  Bizdire University
+                  </h1>
+                  <div className="flex items-center justify-center space-x-2 md:space-x-3 mb-4">
+                <StarRating rating={4.5} />
+                <a className="text-white text-sm md:text-base hover:underline" href="javascript:void(0)">
+                  4 reviews
+                </a>
+              </div>
+              <ul className="flex flex-wrap justify-center sm:justify-center items-center gap-1 sm:gap-2 mb-4">
+                    <li className="w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#001f3f]">
+                      <a href="#" className="flex items-center justify-center w-full h-full">
+                        <FaFacebookF className="text-white text-sm sm:text-md" />
+                      </a>
+                    </li>
+                    <li className="w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#001f3f]">
+                      <a href="#" className="flex items-center justify-center w-full h-full">
+                        <FaTwitter className="text-white text-sm sm:text-md" />
+                      </a>
+                    </li>
+                    <li className="w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#001f3f]">
+                      <a href="#" className="flex items-center justify-center w-full h-full">
+                        <FaRss className="text-white text-sm sm:text-md" />
+                      </a>
+                    </li>
+                    <li className="w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#001f3f]">
+                      <a href="#" className="flex items-center justify-center w-full h-full">
+                        <FaYoutube className="text-white text-sm sm:text-md" />
+                      </a>
+                    </li>
+                    <li className="w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#001f3f]">
+                      <a href="#" className="flex items-center justify-center w-full h-full">
+                        <FaLinkedinIn className="text-white text-sm sm:text-md" />
+                      </a>
+                    </li>
+                    <li className="w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#001f3f]">
+                      <a href="#" className="flex items-center justify-center w-full h-full">
+                        <FaGooglePlusG className="text-white text-sm sm:text-md" />
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-2">
+                      <a
+                        href="#"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg !bg-sky-500 hover:!bg-sky-600 text-white text-xs sm:text-sm shadow-md transition w-fit">
+                        <FaRegHeart className="text-white text-xs sm:text-sm" />
+                        Add Wishlist
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        className="flex items-center gap-1 px-3 py-2 rounded-lg !bg-green-500 hover:!bg-green-600 text-white text-xs sm:text-sm shadow-md transition w-fit"
                       >
-                        <div
-                          className="jq-star"
-                          style={{ width: 35, height: 35 }}
-                        >
-                          <svg
-                            version={1.0}
-                            className="jq-star-svg"
-                            shapeRendering="geometricPrecision"
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="305px"
-                            height="305px"
-                            viewBox="60 -62 309 309"
-                            style={{
-                              enableBackground: "new 64 -59 305 305",
-                              strokeWidth: 0,
-                            }}
-                            xmlSpace="preserve"
-                          >
-                            <style
-                              type="text/css"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  ".svg-empty-201{fill:url(#201_SVGID_1_);}.svg-hovered-201{fill:url(#201_SVGID_2_);}.svg-active-201{fill:url(#201_SVGID_3_);}.svg-rated-201{fill:#f1c40f;}",
-                              }}
-                            />
-                            <linearGradient
-                              id="201_SVGID_1_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_2_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_3_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <polygon
-                              data-side="center"
-                              className="svg-empty-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                              style={{ fill: "transparent", stroke: "#83829c" }}
-                            />
-                            <polygon
-                              data-side="left"
-                              className="svg-active-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                            <polygon
-                              data-side="right"
-                              className="svg-active-201"
-                              points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                          </svg>
-                        </div>
-                        <div
-                          className="jq-star"
-                          style={{ width: 35, height: 35 }}
-                        >
-                          <svg
-                            version={1.0}
-                            className="jq-star-svg"
-                            shapeRendering="geometricPrecision"
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="305px"
-                            height="305px"
-                            viewBox="60 -62 309 309"
-                            style={{
-                              enableBackground: "new 64 -59 305 305",
-                              strokeWidth: 0,
-                            }}
-                            xmlSpace="preserve"
-                          >
-                            <style
-                              type="text/css"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  ".svg-empty-201{fill:url(#201_SVGID_1_);}.svg-hovered-201{fill:url(#201_SVGID_2_);}.svg-active-201{fill:url(#201_SVGID_3_);}.svg-rated-201{fill:#f1c40f;}",
-                              }}
-                            />
-                            <linearGradient
-                              id="201_SVGID_1_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_2_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_3_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <polygon
-                              data-side="center"
-                              className="svg-empty-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                              style={{ fill: "transparent", stroke: "#83829c" }}
-                            />
-                            <polygon
-                              data-side="left"
-                              className="svg-active-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                            <polygon
-                              data-side="right"
-                              className="svg-active-201"
-                              points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                          </svg>
-                        </div>
-                        <div
-                          className="jq-star"
-                          style={{ width: 35, height: 35 }}
-                        >
-                          <svg
-                            version={1.0}
-                            className="jq-star-svg"
-                            shapeRendering="geometricPrecision"
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="305px"
-                            height="305px"
-                            viewBox="60 -62 309 309"
-                            style={{
-                              enableBackground: "new 64 -59 305 305",
-                              strokeWidth: 0,
-                            }}
-                            xmlSpace="preserve"
-                          >
-                            <style
-                              type="text/css"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  ".svg-empty-201{fill:url(#201_SVGID_1_);}.svg-hovered-201{fill:url(#201_SVGID_2_);}.svg-active-201{fill:url(#201_SVGID_3_);}.svg-rated-201{fill:#f1c40f;}",
-                              }}
-                            />
-                            <linearGradient
-                              id="201_SVGID_1_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_2_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_3_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <polygon
-                              data-side="center"
-                              className="svg-empty-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                              style={{ fill: "transparent", stroke: "#83829c" }}
-                            />
-                            <polygon
-                              data-side="left"
-                              className="svg-active-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                            <polygon
-                              data-side="right"
-                              className="svg-active-201"
-                              points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                          </svg>
-                        </div>
-                        <div
-                          className="jq-star"
-                          style={{ width: 35, height: 35 }}
-                        >
-                          <svg
-                            version={1.0}
-                            className="jq-star-svg"
-                            shapeRendering="geometricPrecision"
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="305px"
-                            height="305px"
-                            viewBox="60 -62 309 309"
-                            style={{
-                              enableBackground: "new 64 -59 305 305",
-                              strokeWidth: 0,
-                            }}
-                            xmlSpace="preserve"
-                          >
-                            <style
-                              type="text/css"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  ".svg-empty-201{fill:url(#201_SVGID_1_);}.svg-hovered-201{fill:url(#201_SVGID_2_);}.svg-active-201{fill:url(#201_SVGID_3_);}.svg-rated-201{fill:#f1c40f;}",
-                              }}
-                            />
-                            <linearGradient
-                              id="201_SVGID_1_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_2_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_3_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <polygon
-                              data-side="center"
-                              className="svg-empty-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                              style={{ fill: "transparent", stroke: "#83829c" }}
-                            />
-                            <polygon
-                              data-side="left"
-                              className="svg-active-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                            <polygon
-                              data-side="right"
-                              className="svg-active-201"
-                              points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                          </svg>
-                        </div>
-                        <div
-                          className="jq-star"
-                          style={{ width: 35, height: 35 }}
-                        >
-                          <svg
-                            version={1.0}
-                            className="jq-star-svg"
-                            shapeRendering="geometricPrecision"
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="305px"
-                            height="305px"
-                            viewBox="60 -62 309 309"
-                            style={{
-                              enableBackground: "new 64 -59 305 305",
-                              strokeWidth: 0,
-                            }}
-                            xmlSpace="preserve"
-                          >
-                            <style
-                              type="text/css"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  ".svg-empty-201{fill:url(#201_SVGID_1_);}.svg-hovered-201{fill:url(#201_SVGID_2_);}.svg-active-201{fill:url(#201_SVGID_3_);}.svg-rated-201{fill:#f1c40f;}",
-                              }}
-                            />
-                            <linearGradient
-                              id="201_SVGID_1_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "lightgray" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_2_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <linearGradient
-                              id="201_SVGID_3_"
-                              gradientUnits="userSpaceOnUse"
-                              x1={0}
-                              y1={-50}
-                              x2={0}
-                              y2={250}
-                            >
-                              <stop
-                                offset={0}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                              <stop
-                                offset={1}
-                                style={{ stopColor: "#f1c40f" }}
-                              />
-                            </linearGradient>
-                            <polygon
-                              data-side="center"
-                              className="svg-empty-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                              style={{ fill: "transparent", stroke: "#83829c" }}
-                            />
-                            <polygon
-                              data-side="left"
-                              className="svg-active-201"
-                              points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                            <polygon
-                              data-side="right"
-                              className="svg-empty-201"
-                              points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                              style={{ strokeOpacity: 0 }}
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <a className="text-white" href="javascript:void(0)">
-                        4 reviews
+                        <FaStar className="text-white text-xs sm:text-sm" />
+                        Write Review
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        className="flex items-center gap-1 px-3 py-2 rounded-lg !bg-red-500 hover:!bg-red-600 text-white text-xs sm:text-sm shadow-md transition w-fit"
+                      >
+                        <FaExclamationCircle className="text-white text-xs sm:text-sm" />
+                        Report Abuse
                       </a>
                     </div>
-                    <ul className="social-icons mb-4 ms-auto">
-                      <li>
-                        <a className="social-icon" href="javascript:void(0)">
-                          <i className="fa fa-facebook" />
-                        </a>
-                      </li>
-                      <li>
-                        <a className="social-icon" href="javascript:void(0)">
-                          <i className="fa fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a className="social-icon" href="javascript:void(0)">
-                          <i className="fa fa-rss" />
-                        </a>
-                      </li>
-                      <li>
-                        <a className="social-icon" href="javascript:void(0)">
-                          <i className="fa fa-youtube" />
-                        </a>
-                      </li>
-                      <li>
-                        <a className="social-icon" href="javascript:void(0)">
-                          <i className="fa fa-linkedin" />
-                        </a>
-                      </li>
-                      <li>
-                        <a className="social-icon" href="javascript:void(0)">
-                          <i className="fa fa-google-plus" />
-                        </a>
-                      </li>
-                    </ul>
-                    <a
-                      className="btn btn-info mb-1 mt-1"
-                      href="javascript:void(0)"
-                    >
-                      <i className="fa fa-heart-o" /> Add Wishlist
-                    </a>
-                    <a
-                      className="btn btn-success mb-1 mt-1"
-                      href="javascript:void(0)"
-                    >
-                      <i className="fa fa-star" /> Write Review
-                    </a>
-                    <a
-                      href="javascript:void(0)"
-                      className="btn btn-danger icons"
-                      data-bs-toggle="modal"
-                      data-bs-target="#report"
-                    >
-                      <i className="icon icon-exclamation me-1" /> Report Abuse
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* /header-text */}
           <div className="details-absolute">
-            <div className="d-sm-flex container">
-              <div>
-                <a
-                  href="javascript:void(0)"
-                  className="text-white d-inline-block me-4 "
-                >
-                  <i className="icon icon-location-pin text-white me-2" />
-                  Mp-214, New York, NY 10012, US-52014
-                </a>
+              <div className="container flex flex-col sm:flex-row items-center justify-between text-white text-xs sm:text-sm">
+                    <a href="javascript:void(0)" className="flex items-center gap-2 text-white">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#283653]">
+                        <IoLocationOutline className="text-white text-sm" />
+                      </span>
+                      Mp-214, New York, NY 10012, US-52014
+                    </a>
+                  <a href="javascript:void(0)" className="flex items-center gap-2 mt-2 sm:mt-0 text-white">
+                <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#3b4c70]">
+                  <FaPhoneAlt className="text-white text-sm" />
+                </span>
+                +154 256-635-654
+              </a>
               </div>
-              <div className="ms-auto">
-                <a
-                  href="javascript:void(0)"
-                  className="text-white d-inline-block mt-2 mt-sm-0 fs-18"
-                >
-                  <i className="icon icon-phone text-white me-2 fs-14" />
-                  +154 256-635-654
-                </a>
+            </div>
+            </div>
+        </div>
+        <div className="bg-white shadow-md rounded-lg mx-auto mt-2">
+            <div className="container mx-auto">
+              <div className="page-header">
+                <h4 className="text-lg font-semibold text-gray-800">Business</h4>
+                <nav className="mt-2">
+                  <ol className="flex items-center space-x-2 text-sm text-gray-600">
+                    <li>
+                      <a href="javascript:void(0)" className="hover:text-blue-500">
+                        Home
+                      </a>
+                    </li>
+                    <li>/</li>
+                    <li className="text-blue-500 font-medium">Business</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="page-header">
-        <h4 className="page-title">Business</h4>
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="javascript:void(0)">Home</a>
-          </li>
-          <li className="breadcrumb-item">
-            <a href="javascript:void(0)">Categories</a>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Business
-          </li>
-        </ol>
-      </div>
-
       <section className="sptb">
         <div className="container">
           <div className="row">
             <div className="col-xl-8 col-lg-8 col-md-12">
               {/*Business Overview*/}
-              <div className="card overflow-hidden">
-                <div className="ribbon ribbon-top-right text-danger">
-                  <span className="bg-danger">featured</span>
-                </div>
-                <div className="card-body">
-                  <div className="item-det mb-4">
-                    <a href="javascript:void(0)" className="text-dark">
-                      <h3>Bizdire University</h3>
-                    </a>
-                    <div className=" d-md-flex">
-                      <ul className="d-md-flex mb-0">
-                        <li className="me-5">
-                          <a href="javascript:void(0)" className="icons">
-                            <i className="icon icon-briefcase text-muted me-1" />
-                            Education
-                          </a>
-                        </li>
-                        <li className="me-5">
-                          <a href="javascript:void(0)" className="icons">
-                            <i className="icon icon-location-pin text-muted me-1" />
-                            USA
-                          </a>
-                        </li>
-                        <li className="me-5">
-                          <a href="javascript:void(0)" className="icons">
-                            <i className="icon icon-calendar text-muted me-1" />{" "}
-                            5 hours ago
-                          </a>
-                        </li>
-                        <li className="me-5">
-                          <a href="javascript:void(0)" className="icons">
-                            <i className="icon icon-eye text-muted me-1" /> 765
-                          </a>
-                        </li>
-                      </ul>
-                      <div className="d-flex me-5">
-                        <div
-                          className="rating-star sm my-rating-5"
-                          data-rating="4.5"
-                        >
-                          <div
-                            className="jq-star"
-                            style={{ width: 35, height: 35 }}
-                          >
-                            <svg
-                              version={1.0}
-                              className="jq-star-svg"
-                              shapeRendering="geometricPrecision"
-                              xmlns="http://www.w3.org/2000/svg"
-                              x="0px"
-                              y="0px"
-                              width="305px"
-                              height="305px"
-                              viewBox="60 -62 309 309"
-                              style={{
-                                enableBackground: "new 64 -59 305 305",
-                                strokeWidth: 0,
-                              }}
-                              xmlSpace="preserve"
-                            >
-                              <style
-                                type="text/css"
-                                dangerouslySetInnerHTML={{
-                                  __html:
-                                    ".svg-empty-241{fill:url(#241_SVGID_1_);}.svg-hovered-241{fill:url(#241_SVGID_2_);}.svg-active-241{fill:url(#241_SVGID_3_);}.svg-rated-241{fill:#f1c40f;}",
-                                }}
-                              />
-                              <linearGradient
-                                id="241_SVGID_1_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_2_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_3_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <polygon
-                                data-side="center"
-                                className="svg-empty-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                                style={{
-                                  fill: "transparent",
-                                  stroke: "#83829c",
-                                }}
-                              />
-                              <polygon
-                                data-side="left"
-                                className="svg-active-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                              <polygon
-                                data-side="right"
-                                className="svg-active-241"
-                                points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            className="jq-star"
-                            style={{ width: 35, height: 35 }}
-                          >
-                            <svg
-                              version={1.0}
-                              className="jq-star-svg"
-                              shapeRendering="geometricPrecision"
-                              xmlns="http://www.w3.org/2000/svg"
-                              x="0px"
-                              y="0px"
-                              width="305px"
-                              height="305px"
-                              viewBox="60 -62 309 309"
-                              style={{
-                                enableBackground: "new 64 -59 305 305",
-                                strokeWidth: 0,
-                              }}
-                              xmlSpace="preserve"
-                            >
-                              <style
-                                type="text/css"
-                                dangerouslySetInnerHTML={{
-                                  __html:
-                                    ".svg-empty-241{fill:url(#241_SVGID_1_);}.svg-hovered-241{fill:url(#241_SVGID_2_);}.svg-active-241{fill:url(#241_SVGID_3_);}.svg-rated-241{fill:#f1c40f;}",
-                                }}
-                              />
-                              <linearGradient
-                                id="241_SVGID_1_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_2_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_3_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <polygon
-                                data-side="center"
-                                className="svg-empty-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                                style={{
-                                  fill: "transparent",
-                                  stroke: "#83829c",
-                                }}
-                              />
-                              <polygon
-                                data-side="left"
-                                className="svg-active-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                              <polygon
-                                data-side="right"
-                                className="svg-active-241"
-                                points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            className="jq-star"
-                            style={{ width: 35, height: 35 }}
-                          >
-                            <svg
-                              version={1.0}
-                              className="jq-star-svg"
-                              shapeRendering="geometricPrecision"
-                              xmlns="http://www.w3.org/2000/svg"
-                              x="0px"
-                              y="0px"
-                              width="305px"
-                              height="305px"
-                              viewBox="60 -62 309 309"
-                              style={{
-                                enableBackground: "new 64 -59 305 305",
-                                strokeWidth: 0,
-                              }}
-                              xmlSpace="preserve"
-                            >
-                              <style
-                                type="text/css"
-                                dangerouslySetInnerHTML={{
-                                  __html:
-                                    ".svg-empty-241{fill:url(#241_SVGID_1_);}.svg-hovered-241{fill:url(#241_SVGID_2_);}.svg-active-241{fill:url(#241_SVGID_3_);}.svg-rated-241{fill:#f1c40f;}",
-                                }}
-                              />
-                              <linearGradient
-                                id="241_SVGID_1_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_2_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_3_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <polygon
-                                data-side="center"
-                                className="svg-empty-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                                style={{
-                                  fill: "transparent",
-                                  stroke: "#83829c",
-                                }}
-                              />
-                              <polygon
-                                data-side="left"
-                                className="svg-active-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                              <polygon
-                                data-side="right"
-                                className="svg-active-241"
-                                points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            className="jq-star"
-                            style={{ width: 35, height: 35 }}
-                          >
-                            <svg
-                              version={1.0}
-                              className="jq-star-svg"
-                              shapeRendering="geometricPrecision"
-                              xmlns="http://www.w3.org/2000/svg"
-                              x="0px"
-                              y="0px"
-                              width="305px"
-                              height="305px"
-                              viewBox="60 -62 309 309"
-                              style={{
-                                enableBackground: "new 64 -59 305 305",
-                                strokeWidth: 0,
-                              }}
-                              xmlSpace="preserve"
-                            >
-                              <style
-                                type="text/css"
-                                dangerouslySetInnerHTML={{
-                                  __html:
-                                    ".svg-empty-241{fill:url(#241_SVGID_1_);}.svg-hovered-241{fill:url(#241_SVGID_2_);}.svg-active-241{fill:url(#241_SVGID_3_);}.svg-rated-241{fill:#f1c40f;}",
-                                }}
-                              />
-                              <linearGradient
-                                id="241_SVGID_1_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_2_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_3_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <polygon
-                                data-side="center"
-                                className="svg-empty-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                                style={{
-                                  fill: "transparent",
-                                  stroke: "#83829c",
-                                }}
-                              />
-                              <polygon
-                                data-side="left"
-                                className="svg-active-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                              <polygon
-                                data-side="right"
-                                className="svg-active-241"
-                                points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            className="jq-star"
-                            style={{ width: 35, height: 35 }}
-                          >
-                            <svg
-                              version={1.0}
-                              className="jq-star-svg"
-                              shapeRendering="geometricPrecision"
-                              xmlns="http://www.w3.org/2000/svg"
-                              x="0px"
-                              y="0px"
-                              width="305px"
-                              height="305px"
-                              viewBox="60 -62 309 309"
-                              style={{
-                                enableBackground: "new 64 -59 305 305",
-                                strokeWidth: 0,
-                              }}
-                              xmlSpace="preserve"
-                            >
-                              <style
-                                type="text/css"
-                                dangerouslySetInnerHTML={{
-                                  __html:
-                                    ".svg-empty-241{fill:url(#241_SVGID_1_);}.svg-hovered-241{fill:url(#241_SVGID_2_);}.svg-active-241{fill:url(#241_SVGID_3_);}.svg-rated-241{fill:#f1c40f;}",
-                                }}
-                              />
-                              <linearGradient
-                                id="241_SVGID_1_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "lightgray" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_2_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <linearGradient
-                                id="241_SVGID_3_"
-                                gradientUnits="userSpaceOnUse"
-                                x1={0}
-                                y1={-50}
-                                x2={0}
-                                y2={250}
-                              >
-                                <stop
-                                  offset={0}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                                <stop
-                                  offset={1}
-                                  style={{ stopColor: "#f1c40f" }}
-                                />
-                              </linearGradient>
-                              <polygon
-                                data-side="center"
-                                className="svg-empty-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 "
-                                style={{
-                                  fill: "transparent",
-                                  stroke: "#83829c",
-                                }}
-                              />
-                              <polygon
-                                data-side="left"
-                                className="svg-active-241"
-                                points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                              <polygon
-                                data-side="right"
-                                className="svg-empty-241"
-                                points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 "
-                                style={{ strokeOpacity: 0 }}
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                        4.0
-                      </div>
-                      <div className="d-flex">
-                        <div className="me-2">
-                          <div className="">
-                            <i className="fa fa-heart text-danger" />
-                          </div>
-                        </div>
-                        135
-                      </div>
-                    </div>
-                  </div>
-                  <div className="product-slider carousel-slide-1">
-                    <div
-                      id="carouselFade"
-                      className="carousel slide carousel-fade"
-                      data-bs-ride="carousel"
-                      data-bs-loop="false"
-                      data-bs-thumb="true"
-                      data-bs-dots="false"
-                    >
-                      <div className="arrow-ribbon2 bg-primary">$539</div>
-                      <div
-                        className="carousel-inner slide-show-image"
-                        id="full-gallery"
-                      >
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed1.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item active">
-                          <img
-                            src="../assets/images/products/products/ed2.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed3.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed4.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed5.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed6.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed7.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed8.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed9.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="../assets/images/products/products/ed10.jpg"
-                            alt="img"
-                          />
-                        </div>
-                        <div className="thumbcarousel">
-                          <a
-                            className="carousel-control-prev"
-                            href="#carouselFade"
-                            role="button"
-                            data-bs-slide="prev"
-                          >
-                            <i
-                              className="fa fa-angle-left"
-                              aria-hidden="true"
-                            />
-                          </a>
-                          <a
-                            className="carousel-control-next"
-                            href="#carouselFade"
-                            role="button"
-                            data-bs-slide="next"
-                          >
-                            <i
-                              className="fa fa-angle-right"
-                              aria-hidden="true"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div className="slider-wrap">
-                        <div className="slider">
-                          <div
-                            className="slider-inner carousel-indicators"
-                            style={{ transform: "translateX(0px)" }}
-                          >
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={0}
-                              data-bs-active-id="prev"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed1.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={1}
-                              data-bs-active-id="next"
-                              className="thumb item active"
-                              aria-current="true"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed2.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={2}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed3.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={3}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed4.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={4}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed5.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={5}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed6.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={6}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed7.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={7}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed8.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={8}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed9.jpg"
-                                alt="img"
-                              />
-                            </div>
-                            <div
-                              data-bs-target="#carouselFade"
-                              data-bs-slide-to={9}
-                              data-bs-active-id="next"
-                              className="thumb item"
-                            >
-                              <img
-                                src="../assets/images/products/products/ed10.jpg"
-                                alt="img"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <a className="thumb-carousel-control-prev btn-disabled">
-                          <i className="fa fa-angle-left" />
-                        </a>
-                        <a className="thumb-carousel-control-next">
-                          <i className="fa fa-angle-right" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative bg-white shadow-lg rounded-lg overflow-hidden p-6">
+      {/* Ribbon (Top Right Corner with Cross Design) */}
+       <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden">
+        <div className="absolute top-2 right-[-40px] w-38 bg-red-600 text-white text-xs font-semibold text-center py-2 rotate-45 shadow-md">
+          Featured
+        </div>
+      </div>
+      {/* Card Body */}
+      <div className="card-body">
+        <div className="item-det mb-4">
+          <a href="javascript:void(0)" className="text-dark">
+            <h3>Bizdire University</h3>
+          </a>
+          <div className="d-md-flex">
+            <ul className="d-md-flex mb-0 flex-wrap text-gray-600 text-sm">
+              <li className="me-5 flex items-center gap-1">
+                <FaBriefcase className="text-gray-500" />
+                Education
+              </li>
+              <li className="me-5 flex items-center gap-1">
+                <FaMapMarkerAlt className="text-gray-500" />
+                USA
+              </li>
+              <li className="me-5 flex items-center gap-1">
+                <FaClock className="text-gray-500" />
+                5 hours ago
+              </li>
+              <li className="me-5 flex items-center gap-1">
+                <FaEye className="text-gray-500" />
+                765
+              </li>
+            </ul>
+
+            {/* Rating & Likes (Same Alignment) */}
+            <StarRating rating={4.5} /> 4.0
+            <div className="d-flex flex items-center gap-1">
+              <div className="me-2">
+                <FaHeart className="text-red-600" />
               </div>
+              135
+            </div>
+      </div>
+    </div>
+                    <ProductSlider/>
+                  </div>
+                  </div>
+
               <div className="card">
                 <div className="card-header">
                   <h3 className="card-title">Overview</h3>
