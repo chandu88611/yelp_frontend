@@ -1,17 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, Dropdown, Drawer, Button } from "antd";
-import { FiMenu, FiSearch } from "react-icons/fi";
-import {
-  AiOutlineDown,
-  AiOutlineLogin,
-  AiOutlineUserAdd,
-  AiOutlinePlus,
-} from "react-icons/ai";
+import { Drawer, Button } from "antd";
+import { FiChevronDown, FiMenu, FiSearch, FiX } from "react-icons/fi";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -26,192 +22,130 @@ const Navbar = () => {
     {
       name: "Services",
       submenu: [
-        {
-          name: "Web Development",
-          link: "/business?service=Web%20Development",
-        },
-        { name: "Graphic Design", link: "/business?service=Graphic%20Design" },
-        {
-          name: "SEO Optimization",
-          link: "/business?service=SEO%20Optimization",
-        },
+        { name: "Business", link: "/business?service=Web%20Development" },
+        { name: "Business Listings", link: "/listing" },
       ],
     },
-    { name: "About", submenu: ["Our Team", "Careers", "Contact Us"] },
+    { name: "About", link: "/about" },
     { name: "Blog", link: "/blog" },
   ];
 
-  const renderMenuItems = () => (
-    <ul className="flex flex-col lg:flex-row lg:space-x-6">
-      {menuItems.map((item, index) => (
-        <li
-          key={index}
-          className="relative transition hover:bg-gray-200 p-2 rounded-md"
-        >
-          {item.submenu ? (
-            <Dropdown
-              overlay={
-                <Menu className="bg-white shadow-lg rounded-md">
-                  {item.submenu.map((sub, i) => (
-                    <Menu.Item key={i} className="hover:bg-gray-200">
-                      <Link href={sub.link || "#"}>{sub.name || sub}</Link>
-                    </Menu.Item>
-                  ))}
-                </Menu>
-              }
-              trigger={["hover"]}
-            >
-              <a className="cursor-pointer flex items-center space-x-1">
-                <span>{item.name}</span>
-                <AiOutlineDown className="text-sm" />
-              </a>
-            </Dropdown>
-          ) : (
-            <Link href={item.link}>{item.name}</Link>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
-
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 bg-transparent">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[rgb(0,0,0,.7)] shadow-md">
       <div className="w-full px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold text-blue-600">YelpClone</div>
 
-        {/* Desktop Search Field */}
-        {!isMobile && (
-          <div className="w-full max-w-3xl mx-6">
-            <div className="flex items-center bg-white rounded-md overflow-hidden shadow-md border border-gray-300">
-              <input
-                type="text"
-                placeholder="Keywords"
-                className="w-1/2 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-                type="text"
-                placeholder="Location"
-                className="w-1/4 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <select className="w-1/3 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option>Select Category</option>
-                <option>Hotels</option>
-                <option>Restaurant</option>
-                <option>Events</option>
-                <option>Cinema</option>
-                <option>Gym</option>
-                <option>Shop & Store</option>
-                <option>Tours & Travels</option>
-                <option>Cafe</option>
-                <option>Mobile Store</option>
-                <option>College</option>
-              </select>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 transition">
-                <FiSearch className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Mobile Hamburger Menu */}
-        {isMobile && (
-          <button onClick={() => setOpen(true)} className="text-2xl">
-            <FiMenu />
-          </button>
-        )}
-
-        {/* Desktop Login/Register and Add Listing */}
-        <div className="hidden lg:flex items-center space-x-6">
-          <Button
-            type="default"
-            className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-gray-100 hover:text-gray-800"
-          >
-            <AiOutlineLogin /> Login
-          </Button>
-          <Button
-            type="default"
-            className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-gray-100 hover:text-gray-800"
-          >
-            <AiOutlineUserAdd /> SignUp
-          </Button>
-          <Button
-            type="default"
-            className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-gray-100 hover:text-gray-800"
-          >
-            <AiOutlinePlus /> Listing
-          </Button>
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex space-x-6">
+          {menuItems.map((item, index) =>
+            item.submenu ? (
+              <div key={index} className="relative group">
+                <button className="text-blue-600 font-medium flex items-center gap-1 hover:text-blue-800 transition duration-300">
+                  {item.name}
+                  <FiChevronDown className="text--500 group-hover:text-blue-600 transition duration-300" />
+                </button>
+                <div className="absolute left-0 top-full hidden group-hover:flex flex-col bg-black shadow-xl rounded-lg p-3 min-w-[220px] transition-all duration-300 ease-in-out transform scale-95 group-hover:scale-100">
+                  {item.submenu.map((sub, subIndex) => (
+                    <Link
+                      key={subIndex}
+                      href={sub.link}
+                      className="px-4 py-2 hover:bg-gray-800 text-blue-600 block border-b border-white/30 last:border-none"
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={index}
+                href={item.link}
+                className="text-gray-700 font-medium"
+              >
+                {item.name}
+              </Link>
+            )
+          )}
         </div>
-      </div>
 
-      {/* Desktop Navigation Menu */}
-      {!isMobile && (
-        <div className="w-full bg-transparent text-center py-2">
-          {renderMenuItems()}
-        </div>
-      )}
-
-      {/* Mobile Drawer */}
-      <Drawer
-        title="Menu"
-        placement="left"
-        closable={true}
-        onClose={() => setOpen(false)}
-        visible={open}
-      >
-        <div className="mb-4">
-          {/* Mobile Search Field */}
-          <div className="flex items-center bg-white rounded-md overflow-hidden shadow-md border border-gray-300 mb-4">
+        {/* Search Input (Hidden in Mobile) */}
+        <div className="hidden lg:flex w-1/3">
+          <div className="flex w-full bg-gray-100 rounded-md overflow-hidden">
             <input
               type="text"
-              placeholder="Keywords"
-              className="w-1/2 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Search..."
+              className="w-full px-3 py-2 text-gray-700 focus:outline-none"
             />
-            <input
-              type="text"
-              placeholder="Location"
-              className="w-1/4 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <select className="w-1/3 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option>Select Category</option>
-              <option>Hotels</option>
-              <option>Restaurant</option>
-              <option>Events</option>
-              <option>Cinema</option>
-              <option>Gym</option>
-              <option>Shop & Store</option>
-              <option>Tours & Travels</option>
-              <option>Cafe</option>
-              <option>Mobile Store</option>
-              <option>College</option>
-            </select>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 transition">
-              <FiSearch className="w-5 h-5" />
+            <button className="px-3 bg-blue-600 text-white">
+              <FiSearch size={18} />
             </button>
           </div>
         </div>
-        <div>
-          {renderMenuItems()}
-          <div className="mt-4 flex flex-col space-y-4">
-            <Button
-              type="default"
-              className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-gray-100 hover:text-gray-800"
-            >
-              <AiOutlineLogin /> Login
-            </Button>
-            <Button
-              type="default"
-              className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-gray-100 hover:text-gray-800"
-            >
-              <AiOutlineUserAdd /> SignUp
-            </Button>
-            <Button
-              type="default"
-              className="border border-gray-400 text-white bg-transparent px-4 py-2 flex items-center gap-2 rounded-md transition hover:bg-gray-100 hover:text-gray-800"
-            >
-              <AiOutlinePlus /> Listing
-            </Button>
-          </div>
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-blue-600"
+          onClick={() => setOpen(true)}
+        >
+          <FiMenu size={24} />
+        </button>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      <Drawer
+        placement="left"
+        onClose={() => setOpen(false)}
+        open={open}
+        closeIcon={
+          <FiX
+            size={24}
+            className=" text-blue-600 absolute top-4 right-4 cursor-pointer"
+          />
+        }
+        className="lg:hidden bg-black"
+      >
+        <div className="flex flex-col space-y-4 p-4">
+          {menuItems.map((item, index) =>
+            item.submenu ? (
+              <div key={index}>
+                <button
+                  className="font-medium text-blue-600 flex justify-between items-center w-full px-2 py-2 rounded-md hover:bg-gray-800 transition"
+                  onClick={() => setExpanded(expanded === index ? null : index)}
+                >
+                  {item.name}
+                  <FiChevronDown
+                    className={`transform transition-transform ${
+                      expanded === index ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </button>
+
+                <div
+                  className={`${
+                    expanded === index ? "flex" : "hidden"
+                  } flex-col space-y-2 ml-4`}
+                >
+                  {item.submenu.map((sub, subIndex) => (
+                    <Link
+                      key={subIndex}
+                      href={sub.link}
+                      className="block text-gray-300 hover:text-blue-400 px-4 py-2 transition border-b border-white/50 last:border-none"
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={index}
+                href={item.link}
+                className=" text-blue-600 font-medium hover:text-blue-400 transition px-2 py-2"
+              >
+                {item.name}
+              </Link>
+            )
+          )}
         </div>
       </Drawer>
     </nav>
