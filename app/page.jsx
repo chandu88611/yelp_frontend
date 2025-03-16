@@ -108,7 +108,7 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
           }}
         >
-         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-start pt-40 items-start text-left text-white pl-80 pr-10">
+         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-start pt-56 md:pt-40 items-start text-left  text-white pl-12 md:pl-80 pr-10">
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6 text-white">
               {slide.title}
             </h1>

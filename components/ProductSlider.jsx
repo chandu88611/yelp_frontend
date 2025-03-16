@@ -22,15 +22,18 @@ const images = [
 export default function ProductSlider() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [thumbIndex, setThumbIndex] = useState(0);
+
 
   return (
     <div className="relative w-full max-w-3xl mx-auto">
       {/* Price Tag */}
-      <div className="absolute top-4 left-4 bg-[#001f3f] text-white px-4 py-2 text-sm font-semibold shadow-lg z-10 flex items-center rounded-md">
-        <span>$539</span>
-        <div className="w-0 h-0 border-t-8 border-b-8 border-l-8 border-t-transparent border-b-transparent border-l-[#001f3f] ml-2" />
-      </div>
-
+      <div className="absolute top-0 left-0 bg-[#1b09bd] text-white px-3 py-2 text-sm font-semibold shadow-lg z-10 flex items-center">
+  <span>$539</span>
+  {/* Arrow at the end */}
+  <div className="absolute top-0 right-[-10px] w-0 h-0 
+    border-l-[10px] border-l-[#1b09bd] border-t-[18px] border-t-transparent border-b-[18px] border-b-transparent" />
+</div>
      {/* Main Slider */}
 <div className="relative group h-[450px]"> {/* Increased height */}
   <Swiper
