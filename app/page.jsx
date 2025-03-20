@@ -12,6 +12,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useGetAllBusinessesQuery } from "@/redux/services/businessApi";
 import CategoriesSlider from "@/components/CategorySlider";
+import CategoriesList from "@/components/CategoriesList";
 
 export default function Home() {
   const [txt, setTxt] = useState("");
@@ -3177,7 +3178,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-   
+   <CategoriesList/>
       <section className="sptb bg-patterns bg-white">
         <div className="container">
           <div className="section-title center-block text-center">

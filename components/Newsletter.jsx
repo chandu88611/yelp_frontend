@@ -8,7 +8,7 @@ export default function Newsletter() {
         {/* Section Title */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800">
-            Stay Updated with the Latest Listings
+            Stay updated with the latest listings
           </h2>
           <p className="mt-2 text-gray-600">
             Subscribe to our newsletter and never miss out on new business
