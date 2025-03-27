@@ -173,9 +173,9 @@ export default function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div className="border-t border-gray-700 pt-6 bg-black">
+      <div className="border-t border-gray-700 p-4 bg-gray-900">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 text-grey-400 !important text-sm">
+          <div className="flex flex-wrap justify-center gap-4 text-grey-400 !important text-sm">
             {[
               "How it works",
               "About Us",
@@ -190,7 +190,7 @@ export default function Footer() {
               <a
                 key={link}
                 href="#"
-                className="text-gray-400 !important hover:text-blue-500 !important"
+                className="!text-gray-400 hover:text-blue-500 !important"
               >
                 <span className="underline underline-offset-4 decoration-white">
                   {link}
@@ -198,13 +198,8 @@ export default function Footer() {
               </a>
             ))}
           </div>
-
-          <div className="text-center text-grey mt-5">
-            © {new Date().getFullYear()} Yelp Clone. All Rights Reserved.
-          </div>
-
-          <div className="flex justify-center space-x-4 mt-4">
-            <a href="#" className="text-white hover:text-gray-300">
+          <div className="flex justify-center space-x-3 p-2 mt-4 bg-gray-800 max-w-lg mx-auto">
+          <a href="#" className="text-white hover:text-gray-300">
               <FaFacebookF size={20} />
             </a>
             <a href="#" className="text-white hover:text-gray-300">
@@ -229,8 +224,12 @@ export default function Footer() {
               <FaPinterestP size={20} />
             </a>
           </div>
+          <div className="text-center text-grey mt-5">
+            © {new Date().getFullYear()} Yelp Clone. All Rights Reserved.
+          </div>
         </div>
       </div>
+      
     </footer>
   );
 }
